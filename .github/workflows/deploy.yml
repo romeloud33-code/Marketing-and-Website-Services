@@ -1,0 +1,60 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  pages: write
+  contents: read
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node (optional)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Build (if Node project)
+        run: |
+          if [ -f package.json ]; then
+            echo "package.json detected — installing and building"
+            npm ci
+            if npm run | grep -q "build"; then
+              npm run build || true
+            else
+              echo "no build script found, skipping npm run build"
+            fi
+          else
+            echo "no package.json — skipping Node build"
+          fi
+
+      - name: Determine publish directory
+        run: |
+          # Prefer docs, then build, then public, otherwise publish repo root
+          if [ -d "docs" ]; then
+            echo "PUBLISH_DIR=docs" >> $GITHUB_ENV
+          elif [ -d "build" ]; then
+            echo "PUBLISH_DIR=build" >> $GITHUB_ENV
+          elif [ -d "public" ]; then
+            echo "PUBLISH_DIR=public" >> $GITHUB_ENV
+          else
+            echo "PUBLISH_DIR=." >> $GITHUB_ENV
+          fi
+          echo "Will publish from: $PUBLISH_DIR"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ${{ env.PUBLISH_DIR }}
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
