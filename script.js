@@ -303,6 +303,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ── VOIP WEB PHONE DIALER ──
+  // To connect live calls, deploy your Twilio Serverless Function (from Step 5) 
+  // and paste its URL in the TWILIO_TOKEN_URL constant below.
+  const TWILIO_TOKEN_URL = ''; // E.g., 'https://pixelforge-auth-xxxx-dev.twil.io/token'
+  const AGENT_CELL_PHONE = '+14695045883'; // Verified target phone number (United States)
+  
   const callWidgetTrigger = document.getElementById('call-widget-trigger');
   const callPanel = document.getElementById('call-panel');
   const callPanelClose = document.getElementById('call-panel-close');
@@ -313,6 +318,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let isCalling = false;
   let simulatedCallTimeout;
+  let twilioDevice = null;
+  let activeConnection = null;
 
   // Toggle Panel
   callWidgetTrigger.addEventListener('click', () => {
@@ -341,23 +348,63 @@ document.addEventListener('DOMContentLoaded', () => {
     callStatus.textContent = 'Connecting via WebRTC...';
     dialerNumber.textContent = 'Calling agent...';
 
-    // Simulate Twilio Connection flow (in dev/local stage)
-    simulatedCallTimeout = setTimeout(() => {
-      callStatus.textContent = '🟢 Connected (Active)';
-      dialerNumber.textContent = 'Talking to: Romeloud';
-    }, 2000);
+    // If live Twilio URL is configured, use real VoIP connection
+    if (TWILIO_TOKEN_URL) {
+      try {
+        if (!twilioDevice) {
+          const res = await fetch(TWILIO_TOKEN_URL);
+          const data = await res.json();
+          twilioDevice = new Twilio.Device(data.token, {
+            codecPreferences: ['opus', 'pcmu'],
+            fakeLocalDTMF: true,
+            enableIceRestart: true
+          });
+          
+          twilioDevice.on('error', (error) => {
+            console.error('Twilio Device Error:', error);
+            callStatus.textContent = '❌ Connection error';
+            callStatus.style.color = '#ef4444';
+          });
+        }
+        
+        activeConnection = await twilioDevice.connect();
+        
+        activeConnection.on('accept', () => {
+          callStatus.textContent = '🟢 Connected (Active)';
+          dialerNumber.textContent = 'Talking to: Romeloud';
+        });
+
+        activeConnection.on('disconnect', resetPhoneState);
+      } catch (err) {
+        console.error('VoIP Init Failed:', err);
+        callStatus.textContent = '❌ WebRTC Setup Failed';
+        callStatus.style.color = '#ef4444';
+      }
+    } else {
+      // Simulate Twilio Connection flow (in dev/local stage)
+      simulatedCallTimeout = setTimeout(() => {
+        callStatus.textContent = '🟢 Connected (Active)';
+        dialerNumber.textContent = 'Talking to: Romeloud';
+      }, 2000);
+    }
   });
 
   // Handle Hanging Up
-  const resetPhoneState = () => {
+  function resetPhoneState() {
     isCalling = false;
     clearTimeout(simulatedCallTimeout);
+    
+    if (activeConnection) {
+      activeConnection.disconnect();
+      activeConnection = null;
+    }
+    
     btnCall.style.display = 'flex';
     btnHangup.style.display = 'none';
     callStatus.textContent = 'Ready to call over internet';
     callStatus.style.color = '';
     dialerNumber.textContent = 'Calling Agent...';
-  };
+  }
 
   btnHangup.addEventListener('click', resetPhoneState);
 
