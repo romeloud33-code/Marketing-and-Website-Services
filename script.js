@@ -213,25 +213,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── POST to Formsubmit.co AJAX ──
     try {
-      const payload = {
-        name,
-        email,
-        phone:   phone   || 'Not provided',
-        service: serviceLabels[service] || service,
-        budget:  budgetLabels[budget]   || 'Not specified',
-        message,
-        _subject: `New Inquiry: ${serviceLabels[service] || service} — ${name}`,
-        _template: 'table',
-        _captcha:  'false'
-      };
+      const formData = new URLSearchParams();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('phone', phone || 'Not provided');
+      formData.append('service', serviceLabels[service] || service);
+      formData.append('budget', budgetLabels[budget] || 'Not specified');
+      formData.append('message', message);
+      formData.append('_subject', `New Inquiry: ${serviceLabels[service] || service} — ${name}`);
+      formData.append('_template', 'table');
+      formData.append('_captcha', 'false');
 
       const response = await fetch(FORMSUBMIT_URL, {
         method:  'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
           'Accept':       'application/json'
         },
-        body: JSON.stringify(payload)
+        body: formData.toString()
       });
 
       const result = await response.json();
