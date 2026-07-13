@@ -1432,6 +1432,202 @@ body {
   text-decoration: underline;
 }
 
+/* ── CALL WIDGET (VoIP Dialpad Overlay) ── */
+.call-widget {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  font-family: 'Outfit', sans-serif;
+}
+
+.call-widget-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--gradient-cta);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px var(--primary-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: var(--transition);
+}
+
+.call-widget-btn:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 8px 30px var(--primary-glow);
+}
+
+.call-widget-icon {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.call-widget-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  animation: pulse-ring 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Call Panel */
+.call-panel {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 320px;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card), var(--shadow-glow);
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+  animation: fadeSlideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.call-panel-header {
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--bg-glass-border);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.call-panel-header h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.call-panel-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.call-panel-close:hover {
+  color: var(--text-primary);
+}
+
+.call-panel-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.call-status {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px 12px;
+  border-radius: 50px;
+  border: 1px solid var(--bg-glass-border);
+}
+
+.dialer-screen {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--bg-glass-border);
+  padding: 16px;
+  text-align: center;
+}
+
+.dialer-number {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
+.dialer-controls {
+  width: 100%;
+}
+
+.btn-dial {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 50px;
+  border: none;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-call {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+}
+
+.btn-call:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+}
+
+.btn-hangup {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.btn-hangup:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.call-mic-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.mic-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .call-widget {
+    bottom: 20px;
+    right: 20px;
+  }
+  .call-panel {
+    width: calc(100vw - 40px);
+    right: 0;
+  }
+}
+
 /* ── FOOTER ── */
 .footer {
   background: rgba(0,0,0,0.5);

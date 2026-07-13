@@ -642,6 +642,39 @@
     </div>
   </footer>
 
+  <!-- ===================== INTERACTIVE CALL WIDGET ===================== -->
+  <div class="call-widget" id="call-widget">
+    <button class="call-widget-btn" id="call-widget-trigger" aria-label="Call Us Now">
+      <span class="call-widget-icon">📞</span>
+      <span class="call-widget-pulse"></span>
+    </button>
+    <div class="call-panel" id="call-panel" style="display: none;">
+      <div class="call-panel-header">
+        <span class="logo-icon">⬡</span>
+        <h4>PixelForge Web Phone</h4>
+        <button class="call-panel-close" id="call-panel-close">×</button>
+      </div>
+      <div class="call-panel-body">
+        <div class="call-status" id="call-status">Ready to call over internet</div>
+        <div class="dialer-screen">
+          <div class="dialer-number" id="dialer-number">Calling Agent...</div>
+        </div>
+        <div class="dialer-controls">
+          <button class="btn-dial btn-call" id="btn-call">
+            <span class="control-icon">📞</span> Call Us
+          </button>
+          <button class="btn-dial btn-hangup" id="btn-hangup" style="display: none;">
+            <span class="control-icon">📞</span> Hang Up
+          </button>
+        </div>
+        <div class="call-mic-status">
+          <span class="mic-dot"></span> Requires mic access to talk.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://sdk.twilio.com/js/voice/releases/1.29.1/twilio.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

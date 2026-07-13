@@ -302,6 +302,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── VOIP WEB PHONE DIALER ──
+  const callWidgetTrigger = document.getElementById('call-widget-trigger');
+  const callPanel = document.getElementById('call-panel');
+  const callPanelClose = document.getElementById('call-panel-close');
+  const btnCall = document.getElementById('btn-call');
+  const btnHangup = document.getElementById('btn-hangup');
+  const callStatus = document.getElementById('call-status');
+  const dialerNumber = document.getElementById('dialer-number');
+  
+  let isCalling = false;
+  let simulatedCallTimeout;
+
+  // Toggle Panel
+  callWidgetTrigger.addEventListener('click', () => {
+    const isHidden = callPanel.style.display === 'none';
+    callPanel.style.display = isHidden ? 'block' : 'none';
+  });
+
+  callPanelClose.addEventListener('click', () => {
+    callPanel.style.display = 'none';
+  });
+
+  // Handle Calling
+  btnCall.addEventListener('click', async () => {
+    // Request microphone access
+    try {
+      await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch (err) {
+      callStatus.textContent = '❌ Microphone access denied';
+      callStatus.style.color = '#ef4444';
+      return;
+    }
+
+    isCalling = true;
+    btnCall.style.display = 'none';
+    btnHangup.style.display = 'flex';
+    callStatus.textContent = 'Connecting via WebRTC...';
+    dialerNumber.textContent = 'Calling agent...';
+
+    // Simulate Twilio Connection flow (in dev/local stage)
+    simulatedCallTimeout = setTimeout(() => {
+      callStatus.textContent = '🟢 Connected (Active)';
+      dialerNumber.textContent = 'Talking to: Romeloud';
+    }, 2000);
+  });
+
+  // Handle Hanging Up
+  const resetPhoneState = () => {
+    isCalling = false;
+    clearTimeout(simulatedCallTimeout);
+    btnCall.style.display = 'flex';
+    btnHangup.style.display = 'none';
+    callStatus.textContent = 'Ready to call over internet';
+    callStatus.style.color = '';
+    dialerNumber.textContent = 'Calling Agent...';
+  };
+
+  btnHangup.addEventListener('click', resetPhoneState);
+
   console.log('%cPixelForge Studio 🚀', 'color: #7c3aed; font-size: 18px; font-weight: 900;');
   console.log('%cReady to build your digital presence.', 'color: #06b6d4; font-size: 12px;');
 });
