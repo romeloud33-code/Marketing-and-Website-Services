@@ -1,5 +1,5 @@
 /* =====================================================
-   PIXELFORGE STUDIO — JavaScript
+   ROMEDIGITAL — JavaScript
    ===================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -402,6 +402,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   btnHangup.addEventListener('click', resetPhoneState);
 
-  console.log('%cPixelForge Studio 🚀', 'color: #7c3aed; font-size: 18px; font-weight: 900;');
+  console.log('%cRomeDigital 🚀', 'color: #7c3aed; font-size: 18px; font-weight: 900;');
   console.log('%cReady to build your digital presence.', 'color: #06b6d4; font-size: 12px;');
 });

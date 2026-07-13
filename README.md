@@ -1,6 +1,6 @@
 # 🌐 Digital Growth Toolkit — Recommended Services
 
-This document lists the free and recommended online services discussed during the creation of the PixelForge Studio landing page.
+This document lists the free and recommended online services discussed during the creation of the RomeDigital landing page.
 
 ### 🔗 Project Dashboard Shortcuts
 *   **Live Website URL:** [https://romeloud33-code.github.io/Marketing-and-Website-Services/](https://romeloud33-code.github.io/Marketing-and-Website-Services/)
@@ -24,7 +24,7 @@ This document lists the free and recommended online services discussed during th
 ## 📧 2. Domain & Email Services
 *   **Zoho Mail (Forever Free Plan)**
     *   **Link:** [https://www.zoho.com/mail/zohomail-pricing.html](https://www.zoho.com/mail/zohomail-pricing.html)
-    *   **Use Case:** Free professional custom-domain email hosting (e.g. `info@pixelforgestudio.com`) offering 5 free mailboxes with 5GB storage each.
+    *   **Use Case:** Free professional custom-domain email hosting (e.g. `info@romedigital.com`) offering 5 free mailboxes with 5GB storage each.
 *   **ProtonMail**
     *   **Link:** [https://proton.me](https://proton.me)
     *   **Use Case:** High-security encrypted inbox hosting for personal and administrative communication.
