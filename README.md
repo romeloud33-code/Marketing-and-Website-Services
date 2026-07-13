@@ -7,6 +7,7 @@ This document lists the free and recommended online services discussed during th
 *   **GitHub Username:** `romeloud33-code`
 *   **GitHub Dashboard:** [https://github.com/dashboard](https://github.com/dashboard)
 *   **Formspree Dashboard:** [https://formspree.io/account](https://formspree.io/account) (Username: `romeloud33@proton.me`)
+*   **Microsoft Account:** `romeloud33@proton.me`
 
 ---
 
