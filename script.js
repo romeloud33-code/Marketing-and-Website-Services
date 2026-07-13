@@ -143,8 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
   stats.forEach(s => counterObserver.observe(s));
 
   // ── CONTACT FORM ──
-  const CONTACT_EMAIL = 'romeloud33@proton.me';
-  const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
+  const FORMSPREE_URL = 'https://formspree.io/f/mqerkawd';
   const form = document.getElementById('contact-form');
   const formSuccess = document.getElementById('form-success');
 
@@ -211,36 +210,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const oldErr = form.querySelector('.form-error-banner');
     if (oldErr) oldErr.remove();
 
-    // ── POST to Formsubmit.co AJAX ──
+    // ── POST to Formspree ──
     try {
-      const formData = new URLSearchParams();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('phone', phone || 'Not provided');
-      formData.append('service', serviceLabels[service] || service);
-      formData.append('budget', budgetLabels[budget] || 'Not specified');
-      formData.append('message', message);
-      formData.append('_subject', `New Inquiry: ${serviceLabels[service] || service} — ${name}`);
-      formData.append('_template', 'table');
-      formData.append('_captcha', 'false');
+      const payload = {
+        name,
+        email,
+        phone:   phone   || 'Not provided',
+        service: serviceLabels[service] || service,
+        budget:  budgetLabels[budget]   || 'Not specified',
+        message
+      };
 
-      const response = await fetch(FORMSUBMIT_URL, {
+      const response = await fetch(FORMSPREE_URL, {
         method:  'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
           'Accept':       'application/json'
         },
-        body: formData.toString()
+        body: JSON.stringify(payload)
       });
 
-      const result = await response.json();
-
-      if (response.ok && result.success === 'true') {
+      if (response.ok) {
         // ── Success ──
         form.style.display          = 'none';
         formSuccess.style.display   = 'block';
       } else {
-        throw new Error(result.message || 'Submission failed');
+        throw new Error('Submission failed');
       }
 
     } catch (err) {
@@ -253,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
       errBanner.className = 'form-error-banner';
       errBanner.innerHTML = `
         ⚠️ Something went wrong — please try again or email us directly at
-        <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.
+        <a href="mailto:romeloud33@proton.me">romeloud33@proton.me</a>.
       `;
       form.insertBefore(errBanner, submitBtn);
       console.error('Form submission error:', err);
