@@ -2,6 +2,12 @@
 
 This guide contains the credentials and setup instructions for your Web Phone dialer's Twilio Serverless backend.
 
+### 🔗 Twilio Account Console
+- **Account Console Link:** https://console.twilio.com/ (Select your Project Dashboard)
+- **Account SID:** *Available in your Twilio Console dashboard*
+
+---
+
 ## 🔑 API Credentials
 - **API SID:** `SK70c86c443ddbb7cc5e5f06d60a309c92`
 - **API Secret:** `gbbStOG35lx3I6Crldw88AAs6oplBhnl`

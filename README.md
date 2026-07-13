@@ -2,8 +2,11 @@
 
 This document lists the free and recommended online services discussed during the creation of the PixelForge Studio landing page.
 
-### 🔗 Live Project Website
-**Live Website URL:** [https://romeloud33-code.github.io/Marketing-and-Website-Services/](https://romeloud33-code.github.io/Marketing-and-Website-Services/)
+### 🔗 Project Dashboard Shortcuts
+*   **Live Website URL:** [https://romeloud33-code.github.io/Marketing-and-Website-Services/](https://romeloud33-code.github.io/Marketing-and-Website-Services/)
+*   **GitHub Username:** `romeloud33-code`
+*   **GitHub Dashboard:** [https://github.com/dashboard](https://github.com/dashboard)
+*   **Formspree Dashboard:** [https://formspree.io/account](https://formspree.io/account) (Username: `romeloud33@proton.me`)
 
 ---
 
