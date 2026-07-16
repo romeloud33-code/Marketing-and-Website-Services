@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connect with RomeDigital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: var(--bg-dark);
+      font-family: 'Inter', sans-serif;
+    }
+    .connect-container {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-glass-border);
+      border-radius: var(--radius-lg);
+      padding: 40px 30px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: var(--shadow-card);
+    }
+    .connect-logo {
+      font-size: 2.2rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .connect-logo span {
+      background: var(--gradient-cta);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .connect-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+    .connect-btn-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .connect-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+    .btn-call {
+      background: var(--gradient-cta);
+      color: #fff;
+    }
+    .btn-call:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+    }
+    .btn-text {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--bg-glass-border);
+      color: #fff;
+    }
+    .btn-text:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="connect-container">
+    <a href="index.html" class="connect-logo">⬡ Rome<span>Digital</span></a>
+    <p class="connect-subtitle">Select an option to contact our team directly:</p>
+    <div class="connect-btn-grid">
+      <a href="tel:+12148140856" class="connect-btn btn-call">
+        <span>📞</span> Call Us Now
+      </a>
+      <a href="sms:+12148140856" class="connect-btn btn-text">
+        <span>💬</span> Send a Text
+      </a>
+    </div>
+    <div style="margin-top: 32px; font-size: 0.85rem; color: var(--text-muted);">
+      Direct Phone: <a href="tel:+12148140856" style="color: var(--primary-light); text-decoration: none;">+1 (214) 814-0856</a>
+    </div>
+  </div>
+</body>
+</html>
