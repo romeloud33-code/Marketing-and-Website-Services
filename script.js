@@ -147,7 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
   const formSuccess = document.getElementById('form-success');
 
-  form.addEventListener('submit', async (e) => {
+  if (form) {
+    form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name    = document.getElementById('contact-name').value.trim();
@@ -254,6 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Form submission error:', err);
     }
   });
+}
 
   // ── TICKER PAUSE ON HOVER ──
   const tickerTrack = document.querySelector('.ticker-track');
