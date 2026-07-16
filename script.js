@@ -13,20 +13,49 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── HAMBURGER MENU ──
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
+  const dropdownToggle = navLinks.querySelector('.dropdown-toggle');
+  const dropdownMenu = navLinks.querySelector('.dropdown-menu');
+  const navItemDropdown = navLinks.querySelector('.nav-item-dropdown');
 
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     navLinks.classList.toggle('open');
     document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    // Reset dropdown on close
+    if (!navLinks.classList.contains('open')) {
+      if (dropdownMenu) dropdownMenu.classList.remove('open');
+      if (navItemDropdown) navItemDropdown.classList.remove('active');
+    }
   });
 
-  navLinks.querySelectorAll('a').forEach(link => {
+  navLinks.querySelectorAll('a:not(.dropdown-toggle)').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
       navLinks.classList.remove('open');
       document.body.style.overflow = '';
+      if (dropdownMenu) dropdownMenu.classList.remove('open');
+      if (navItemDropdown) navItemDropdown.classList.remove('active');
     });
   });
+
+  // Toggle Services Dropdown on Mobile
+  if (dropdownToggle && dropdownMenu) {
+    dropdownToggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdownMenu.classList.toggle('open');
+        navItemDropdown.classList.toggle('active');
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768 && navItemDropdown && !navItemDropdown.contains(e.target)) {
+        dropdownMenu.classList.remove('open');
+        navItemDropdown.classList.remove('active');
+      }
+    });
+  }
 
   // ── FLOATING PARTICLES ──
   const particlesContainer = document.getElementById('particles');
