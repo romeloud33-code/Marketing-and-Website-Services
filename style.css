@@ -1626,6 +1626,97 @@ body {
 }
 
 /* =====================================================
+   SERVICES SUB-NAVBAR
+   ===================================================== */
+.services-subnav {
+  background: rgba(10, 10, 20, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--bg-glass-border);
+  border-bottom: 1px solid var(--bg-glass-border);
+  position: sticky;
+  top: 70px;
+  z-index: 90;
+  overflow: hidden;
+}
+
+.services-subnav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.services-subnav-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.services-subnav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.services-subnav-link .subnav-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.services-subnav-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.services-subnav-link.active {
+  color: var(--accent);
+  font-weight: 600;
+  border-bottom-color: var(--accent);
+  background: rgba(6, 182, 212, 0.06);
+}
+
+/* Subtle glow on active link */
+.services-subnav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow), 0 0 4px var(--accent-glow);
+  border-radius: 2px;
+}
+
+/* Mobile: scrollable horizontal nav */
+@media (max-width: 768px) {
+  .services-subnav-inner {
+    justify-content: flex-start;
+    gap: 2px;
+    padding: 0 16px;
+  }
+  .services-subnav-link {
+    padding: 12px 16px;
+    font-size: 0.82rem;
+  }
+}
+
+/* =====================================================
    SUBPAGE STYLES
    ===================================================== */
 .hero-subpage {
