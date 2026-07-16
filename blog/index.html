@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RomeDigital Blog | Insights on Web Design, SEO & Digital Marketing</title>
+  <meta name="description" content="Expert insights, trends, and actionable strategies on responsive web design, local SEO rankings, social media growth, and conversion content creation." />
+  <meta name="keywords" content="web design blog, local SEO tips, digital marketing strategies, content writing guide, brand identity, company growth, RomeDigital blog" />
+  <meta name="author" content="RomeDigital" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://romeloud33-code.github.io/Marketing-and-Website-Services/blog/index.html" />
+  <meta property="og:title" content="RomeDigital Blog | Premium Web Design, SEO & Marketing Insights" />
+  <meta property="og:description" content="Actionable guides and technical strategies on custom web design, SEO ranking packs, copywriting, and visual brand identity." />
+  <meta property="og:image" content="https://romeloud33-code.github.io/Marketing-and-Website-Services/hero_bg_1783907062890.png" />
+
+  <!-- Twitter / X -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://romeloud33-code.github.io/Marketing-and-Website-Services/blog/index.html" />
+  <meta property="twitter:title" content="RomeDigital Blog | Premium Web Design, SEO & Marketing Insights" />
+  <meta property="twitter:description" content="Actionable guides and technical strategies on custom web design, SEO ranking packs, copywriting, and visual brand identity." />
+  <meta property="twitter:image" content="https://romeloud33-code.github.io/Marketing-and-Website-Services/hero_bg_1783907062890.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="YOUR_GOOGLE_SEARCH_CONSOLE_CODE_HERE" />
+
+  <!-- Google Analytics 4 (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID_HERE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YOUR_MEASUREMENT_ID_HERE');
+  </script>
+
+  <style>
+    /* Blog Listing Specific Styles */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .blog-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--bg-glass-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 380px;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(124, 58, 237, 0.4);
+      background: var(--bg-card-hover);
+      box-shadow: var(--shadow-card), 0 0 30px rgba(124, 58, 237, 0.15);
+    }
+
+    .blog-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(6, 182, 212, 0.2));
+      border: 1px solid rgba(124, 58, 237, 0.4);
+      border-radius: 50px;
+      padding: 4px 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary-light);
+      width: fit-content;
+      margin-bottom: 16px;
+    }
+
+    .blog-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .blog-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 14px;
+      color: var(--text-primary);
+      transition: var(--transition);
+    }
+
+    .blog-card:hover .blog-title {
+      background: var(--gradient-cta);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .blog-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .blog-cta {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+      margin-top: auto;
+    }
+
+    .blog-card:hover .blog-cta {
+      color: var(--primary-light);
+      transform: translateX(4px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo" id="nav-logo-link">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">Rome<span class="logo-accent">Digital</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#services" class="nav-link">Services</a></li>
+        <li><a href="../index.html#why-us" class="nav-link">Why Us</a></li>
+        <li><a href="../index.html#process" class="nav-link">Process</a></li>
+        <li><a href="../index.html#pricing" class="nav-link">Pricing</a></li>
+        <li><a href="#contact" class="nav-cta">Get Started</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero" class="hero hero-subpage">
+     <div class="hero-bg-overlay"></div>
+     <div class="particles" id="particles"></div>
+     <div class="container hero-container-layout">
+        <div class="hero-content-side">
+          <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span style="color: var(--text-primary);">Blog</span>
+          </div>
+          <h1 class="hero-title">
+            The RomeDigital<br />
+            <span class="gradient-text">Insights & Blog</span>
+          </h1>
+          <p class="hero-subtitle">
+            Expert strategies on custom web design, organic search optimization, brand identity, and content marketing to scale your business.
+          </p>
+        </div>
+     </div>
+  </section>
+
+  <!-- ===================== BLOG LISTING ===================== -->
+  <section class="section" style="background: var(--bg-dark); padding-top: 60px;">
+    <div class="container">
+      <div class="blog-grid">
+        
+        <!-- ARTICLE 1: Generative Engine Optimization (LIVE) -->
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">SEO Optimization</span>
+            <div class="blog-meta">July 16, 2026 • 5 min read</div>
+            <h3 class="blog-title">Generative Engine Optimization: How to Get Your Website Cited in AI Search Overviews</h3>
+            <p class="blog-desc">Learn how to optimize your website for AI search engines like ChatGPT Search, Google Gemini, and Perplexity to earn citations and drive high-intent organic traffic.</p>
+          </div>
+          <a href="generative-engine-optimization.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <!-- FUTURE ARTICLES (DRAFTS - COMMENTED OUT) -->
+        <!--
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Web Design</span>
+            <div class="blog-meta">July 20, 2026 • 4 min read</div>
+            <h3 class="blog-title">Mobile-First Design: Why Responsive Layouts Are Critical for Sales in 2026</h3>
+            <p class="blog-desc">Discover why designing for mobile screens first is no longer optional, and how responsive site architectures directly influence search visibility and visitor conversions.</p>
+          </div>
+          <a href="mobile-first-design.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Web Design</span>
+            <div class="blog-meta">July 24, 2026 • 4 min read</div>
+            <h3 class="blog-title">The Need for Speed: How Page Load Times Directly Impact Your Bottom Line</h3>
+            <p class="blog-desc">Explore the financial cost of a slow-loading website, how core web vitals dictate Google rankings, and simple strategies to speed up your load performance.</p>
+          </div>
+          <a href="page-speed-revenue.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Web Design</span>
+            <div class="blog-meta">July 28, 2026 • 5 min read</div>
+            <h3 class="blog-title">Human-Centric Web Design: Balancing Beautiful Aesthetics with User Experience</h3>
+            <p class="blog-desc">Learn the core principles of human-centric UX design, and how to create clean, visually stunning sites that don't sacrifice clarity and user accessibility.</p>
+          </div>
+          <a href="human-centric-web-design.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Web Design</span>
+            <div class="blog-meta">August 1, 2026 • 5 min read</div>
+            <h3 class="blog-title">WCAG Compliance Guide: Making Your Website Accessible and Avoiding Lawsuits</h3>
+            <p class="blog-desc">An actionable framework for aligning your site code and visual patterns with WCAG accessibility criteria to serve all users and mitigate legal liability.</p>
+          </div>
+          <a href="wcag-accessibility-compliance.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Web Design</span>
+            <div class="blog-meta">August 5, 2026 • 4 min read</div>
+            <h3 class="blog-title">The Power of Micro-Animations: Engaging Users Without Slowing Down Your Site</h3>
+            <p class="blog-desc">Explore how subtle scroll and hover interactions elevate user engagement and brand perception without affecting performance metrics.</p>
+          </div>
+          <a href="web-design-micro-animations.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Content Creation</span>
+            <div class="blog-meta">August 9, 2026 • 5 min read</div>
+            <h3 class="blog-title">Conversion Copywriting: How to Write Website Copy That Turns Visitors Into Leads</h3>
+            <p class="blog-desc">A deep dive into writing persuasive copy that addresses customer pain points, builds authority, and commands user action on key pages.</p>
+          </div>
+          <a href="conversion-copywriting-guide.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">SEO Optimization</span>
+            <div class="blog-meta">August 13, 2026 • 6 min read</div>
+            <h3 class="blog-title">Local SEO Blueprint: How to Dominate the Google Map Pack in 2026</h3>
+            <p class="blog-desc">A complete local search checklist to align directory listings, reviews, and maps to rank for queries in your immediate neighborhood.</p>
+          </div>
+          <a href="local-seo-ranking-pack.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Web Design</span>
+            <div class="blog-meta">August 17, 2026 • 4 min read</div>
+            <h3 class="blog-title">The Silent Business Killer: Why Ongoing Website Maintenance & Security is Essential</h3>
+            <p class="blog-desc">Unpack the core technical reasons why post-launch upgrades, software updates, and daily cloud backups are critical to preventing costly downtime.</p>
+          </div>
+          <a href="website-maintenance-importance.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Web Design</span>
+            <div class="blog-meta">August 21, 2026 • 5 min read</div>
+            <h3 class="blog-title">E-Commerce Design Best Practices: Reducing Cart Abandonment and Boosting ROI</h3>
+            <p class="blog-desc">Maximize your e-commerce conversion rates by optimizing checkout workflows, header search, product filtering, and trust banners.</p>
+          </div>
+          <a href="ecommerce-design-best-practices.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Web Design</span>
+            <div class="blog-meta">August 25, 2026 • 5 min read</div>
+            <h3 class="blog-title">WordPress, Webflow, or Custom HTML? Choosing the Right Platform for Your Site</h3>
+            <p class="blog-desc">An objective comparison of major cms platforms and clean custom HTML solutions based on loading speeds, maintenance, and growth flexibility.</p>
+          </div>
+          <a href="cms-wordpress-webflow-html.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Brand Creation</span>
+            <div class="blog-meta">August 29, 2026 • 4 min read</div>
+            <h3 class="blog-title">The Power of a Unified Visual Identity: Building Unshakable Trust Online</h3>
+            <p class="blog-desc">Explore how consistent logos, typefaces, and color scales across all pages cultivate brand awareness and inspire trust in new clients.</p>
+          </div>
+          <a href="visual-brand-identity-power.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">SEO Optimization</span>
+            <div class="blog-meta">September 2, 2026 • 5 min read</div>
+            <h3 class="blog-title">Demystifying Schema Markup: How Structured Data Earns Rich Snippets on Google</h3>
+            <p class="blog-desc">How to implement structured JSON-LD schema to gain visual features like star ratings, review counters, and FAQ dropdowns directly on search pages.</p>
+          </div>
+          <a href="schema-markup-structured-data.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Web Design</span>
+            <div class="blog-meta">September 6, 2026 • 5 min read</div>
+            <h3 class="blog-title">10 Common Web Design Mistakes Small Businesses Make (And How to Fix Them)</h3>
+            <p class="blog-desc">Identify the critical usability, code, and optimization mistakes that are costing you customers, and how to quickly audit and correct them.</p>
+          </div>
+          <a href="common-web-design-mistakes.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Content Creation</span>
+            <div class="blog-meta">September 10, 2026 • 4 min read</div>
+            <h3 class="blog-title">High-Converting Landing Pages: Maximize ROI on Your Paid Advertising Campaigns</h3>
+            <p class="blog-desc">Discover the formula for landing pages that align with Google Ads and Meta Ads, leading to lower acquisition costs and higher quality scores.</p>
+          </div>
+          <a href="landing-page-roi-ads.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Brand Creation</span>
+            <div class="blog-meta">September 14, 2026 • 5 min read</div>
+            <h3 class="blog-title">Color Psychology in Web Design: Influencing Customer Behavior with Your Palette</h3>
+            <p class="blog-desc">Understand the emotional triggers of different color palettes, and how to choose brand tones that guide user action and trust.</p>
+          </div>
+          <a href="color-psychology-web-design.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Content Creation</span>
+            <div class="blog-meta">September 18, 2026 • 4 min read</div>
+            <h3 class="blog-title">Beyond Stock Photos: Why Authentic Brand Imagery Enhances Conversion Rates</h3>
+            <p class="blog-desc">Why using custom brand illustrations and professional headshots builds client connection and conversion metrics far better than generic stock sites.</p>
+          </div>
+          <a href="avoiding-web-stock-photography.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">SEO Optimization</span>
+            <div class="blog-meta">September 22, 2026 • 5 min read</div>
+            <h3 class="blog-title">SEO Architecture: Organizing Your Website Hierarchy for Maximum Rank Power</h3>
+            <p class="blog-desc">How to plan your directories, parent-child pages, and internal anchor text distributions to ensure link juice flows to your main sales pages.</p>
+          </div>
+          <a href="seo-website-hierarchy-structure.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">Web Design</span>
+            <div class="blog-meta">September 26, 2026 • 4 min read</div>
+            <h3 class="blog-title">HTTPS and SSL: Why Website Security is a Top Search Engine Ranking Factor</h3>
+            <p class="blog-desc">A look at secure sockets layer protocols, how browser warnings impact user trust, and the SEO impact of transitioning to a secure server structure.</p>
+          </div>
+          <a href="https-ssl-website-security.html" class="blog-cta">Read Article →</a>
+        </article>
+
+        <article class="blog-card">
+          <div>
+            <span class="blog-badge">SEO Optimization</span>
+            <div class="blog-meta">September 30, 2026 • 5 min read</div>
+            <h3 class="blog-title">Measuring What Matters: Setting Up Website Analytics to Track Leads & Growth</h3>
+            <p class="blog-desc">A breakdown of how to use Google Analytics 4, custom events, and Google Tag Manager to track conversions and audit customer behavior patterns.</p>
+          </div>
+          <a href="website-analytics-tracking.html" class="blog-cta">Read Article →</a>
+        </article>
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="section-tag">Let's Talk</span>
+          <h2 class="section-title">Ready to<br /><span class="gradient-text">Level Up?</span></h2>
+          <p class="contact-desc">Tell us about your project and we'll get back to you within 24 hours with a free consultation.</p>
+          <div class="contact-perks">
+            <div class="perk"><span>✅</span> Free 30-min strategy session</div>
+            <div class="perk"><span>✅</span> No commitment required</div>
+            <div class="perk"><span>✅</span> Custom quote within 24hrs</div>
+            <div class="perk"><span>✅</span> 1 year free maintenance included</div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Full Name *</label>
+                <input type="text" id="contact-name" name="name" placeholder="John Smith" required />
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email Address *</label>
+                <input type="email" id="contact-email" name="email" placeholder="john@company.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact-phone">Phone Number</label>
+              <input type="tel" id="contact-phone" name="phone" placeholder="+1 (555) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="contact-service">Services Interested In *</label>
+              <select id="contact-service" name="service" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option value="website">Website Design & Development</option>
+                <option value="social">Social Media Management</option>
+                <option value="content">Content Creation</option>
+                <option value="seo">SEO Optimization</option>
+                <option value="brand">Brand Creation</option>
+                <option value="bundle">Full Digital Suite (Bundle)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contact-budget">Estimated Budget</label>
+              <select id="contact-budget" name="budget">
+                <option value="" disabled selected>Select your budget range...</option>
+                <option value="under1k">Under $1,000</option>
+                <option value="1k-3k">$1,000 – $3,000</option>
+                <option value="3k-5k">$3,000 – $5,000</option>
+                <option value="5k+">$5,000+</option>
+                <option value="custom">Let's discuss</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Tell Us About Your Project *</label>
+              <textarea id="contact-message" name="message" rows="4" placeholder="Describe your business, goals, and what you need..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full btn-submit" id="contact-submit">
+              <span class="btn-text">Send My Request — It's Free!</span>
+              <span class="btn-icon">→</span>
+            </button>
+          </form>
+          <div class="form-success" id="form-success" style="display:none;">
+            <div class="success-icon">🎉</div>
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out. We'll be in touch within 24 hours with your free consultation details.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo">
+          <span class="logo-icon">⬡</span>
+          <span class="logo-text">Rome<span class="logo-accent">Digital</span></span>
+        </a>
+        <p>Your all-in-one digital growth partner. Building stunning websites and powerful brands since 2019.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="../web-design.html">Web Design</a>
+          <a href="../social-media.html">Social Media</a>
+          <a href="../content-creation.html">Content Creation</a>
+          <a href="../seo-optimization.html">SEO</a>
+          <a href="../brand-creation.html">Brand Creation</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="../index.html#why-us">About Us</a>
+          <a href="../index.html#process">Our Process</a>
+          <a href="../index.html#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 RomeDigital. All rights reserved.</p>
+      <p>Privacy Policy &nbsp;|&nbsp; Terms of Service</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
