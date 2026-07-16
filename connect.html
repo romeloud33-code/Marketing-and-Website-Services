@@ -3,20 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Connect with RomeDigital</title>
+  <title>Connect with RomeDigital | Direct Call or Text</title>
+  <meta name="description" content="Quickly call or send a text message to the RomeDigital specialist team." />
+  <meta name="keywords" content="contact RomeDigital, call RomeDigital, text RomeDigital" />
+  <meta name="author" content="RomeDigital" />
+  <meta name="robots" content="noindex, nofollow" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="YOUR_GOOGLE_SEARCH_CONSOLE_CODE_HERE" />
+
+  <!-- Google Analytics 4 (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID_HERE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YOUR_MEASUREMENT_ID_HERE');
+  </script>
+
   <style>
-    body {
+    .connect-wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      margin: 0;
+      min-height: 70vh;
       background: var(--bg-dark);
-      font-family: 'Inter', sans-serif;
+      padding: 120px 20px 60px;
     }
     .connect-container {
       background: var(--bg-card);
@@ -25,7 +43,7 @@
       padding: 40px 30px;
       text-align: center;
       max-width: 400px;
-      width: 90%;
+      width: 100%;
       box-shadow: var(--shadow-card);
     }
     .connect-logo {
@@ -47,6 +65,7 @@
       font-size: 0.95rem;
       color: var(--text-secondary);
       margin-bottom: 32px;
+      line-height: 1.5;
     }
     .connect-btn-grid {
       display: flex;
@@ -87,20 +106,81 @@
   </style>
 </head>
 <body>
-  <div class="connect-container">
-    <a href="index.html" class="connect-logo">⬡ Rome<span>Digital</span></a>
-    <p class="connect-subtitle">Select an option to contact our team directly:</p>
-    <div class="connect-btn-grid">
-      <a href="tel:+12148140856" class="connect-btn btn-call">
-        <span>📞</span> Call Us Now
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" id="nav-logo-link">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">Rome<span class="logo-accent">Digital</span></span>
       </a>
-      <a href="sms:+12148140856" class="connect-btn btn-text">
-        <span>💬</span> Send a Text
-      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#services" class="nav-link">Services</a></li>
+        <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="blog/index.html" class="nav-link">Blog</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div style="margin-top: 32px; font-size: 0.85rem; color: var(--text-muted);">
-      Direct Phone: <a href="tel:+12148140856" style="color: var(--primary-light); text-decoration: none;">+1 (214) 814-0856</a>
+  </nav>
+
+  <!-- ===================== CONNECT SECTION ===================== -->
+  <main class="connect-wrapper">
+    <div class="connect-container">
+      <a href="index.html" class="connect-logo">⬡ Rome<span>Digital</span></a>
+      <p class="connect-subtitle">Select an option to contact our team directly:</p>
+      <div class="connect-btn-grid">
+        <a href="tel:+12148140856" class="connect-btn btn-call">
+          <span>📞</span> Call Us Now
+        </a>
+        <a href="sms:+12148140856" class="connect-btn btn-text">
+          <span>💬</span> Send a Text
+        </a>
+      </div>
+      <div style="margin-top: 32px; font-size: 0.85rem; color: var(--text-muted);">
+        Direct Phone: <a href="tel:+12148140856" style="color: var(--primary-light); text-decoration: none;">+1 (214) 814-0856</a>
+      </div>
     </div>
-  </div>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon">⬡</span>
+          <span class="logo-text">Rome<span class="logo-accent">Digital</span></span>
+        </a>
+        <p>Your all-in-one digital growth partner. Building stunning websites and powerful brands since 2019.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="web-design.html">Web Design</a>
+          <a href="social-media.html">Social Media</a>
+          <a href="content-creation.html">Content Creation</a>
+          <a href="seo-optimization.html">SEO</a>
+          <a href="brand-creation.html">Brand Creation</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="index.html#why-us">About Us</a>
+          <a href="index.html#process">Our Process</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="faq.html">FAQ</a>
+          <a href="blog/index.html">Blog</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 RomeDigital. All rights reserved.</p>
+      <p>Privacy Policy &nbsp;|&nbsp; Terms of Service</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
