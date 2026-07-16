@@ -257,6 +257,89 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 }
 
+  // ── NEWSLETTER SUBSCRIBE FORM ──
+  const subscribeForm = document.getElementById('subscribe-form');
+  const subscribeSuccess = document.getElementById('subscribe-success');
+
+  if (subscribeForm) {
+    subscribeForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('subscribe-name').value.trim();
+      const email = document.getElementById('subscribe-email').value.trim();
+
+      // Validate required fields
+      const required = [
+        { el: document.getElementById('subscribe-name'), val: name },
+        { el: document.getElementById('subscribe-email'), val: email }
+      ];
+
+      let hasError = false;
+      required.forEach(({ el, val }) => {
+        if (!val) {
+          hasError = true;
+          el.style.borderColor = '#ef4444';
+          el.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.2)';
+          el.addEventListener('input', () => {
+            el.style.borderColor = '';
+            el.style.boxShadow = '';
+          }, { once: true });
+        }
+      });
+      if (hasError) return;
+
+      const submitBtn = document.getElementById('subscribe-submit');
+      const originalBtnHTML = submitBtn.innerHTML;
+      submitBtn.innerHTML = `
+        <span class="btn-text">Subscribing</span>
+        <span class="btn-spinner"></span>
+      `;
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.85';
+
+      // Remove any previous error banner
+      const oldErr = subscribeForm.querySelector('.form-error-banner');
+      if (oldErr) oldErr.remove();
+
+      try {
+        const payload = {
+          name,
+          email,
+          formType: 'Newsletter Subscription'
+        };
+
+        const response = await fetch(FORMSPREE_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          subscribeForm.style.display = 'none';
+          subscribeSuccess.style.display = 'block';
+        } else {
+          throw new Error('Subscription failed');
+        }
+      } catch (err) {
+        submitBtn.innerHTML = originalBtnHTML;
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+
+        const errBanner = document.createElement('div');
+        errBanner.className = 'form-error-banner';
+        errBanner.innerHTML = `
+          ⚠️ Something went wrong — please try again or email us directly at
+          <a href="mailto:romeloud33@proton.me">romeloud33@proton.me</a>.
+        `;
+        subscribeForm.insertBefore(errBanner, submitBtn);
+        console.error('Newsletter submission error:', err);
+      }
+    });
+  }
+
   // ── TICKER PAUSE ON HOVER ──
   const tickerTrack = document.querySelector('.ticker-track');
   if (tickerTrack) {
