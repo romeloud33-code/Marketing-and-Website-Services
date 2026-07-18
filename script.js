@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
     p.style.animationDuration = (Math.random() * 15 + 8) + 's';
     p.style.animationDelay = (Math.random() * 15) + 's';
 
-    // Alternate colors
-    const colors = ['#7c3aed', '#06b6d4', '#8b5cf6', '#22d3ee', '#a78bfa'];
+    // Alternate colors (Black, White & Yellow Theme)
+    const colors = ['#facc15', '#ffffff', '#eab308', '#d4d4d8', '#fef08a'];
     p.style.background = colors[Math.floor(Math.random() * colors.length)];
     particlesContainer.appendChild(p);
   }
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinkEls.forEach(link => {
           link.style.color = '';
           if (link.getAttribute('href') === '#' + entry.target.id) {
-            link.style.color = '#8b5cf6';
+            link.style.color = '#facc15';
           }
         });
       }
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const rect = card.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       const y = ((e.clientY - rect.top) / rect.height) * 100;
-      glow.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(124,58,237,0.35), transparent 60%)`;
+      glow.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(250,204,21,0.35), transparent 60%)`;
     });
 
     card.addEventListener('mouseleave', () => {
@@ -410,6 +410,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  console.log('%cRomeDigital 🚀', 'color: #7c3aed; font-size: 18px; font-weight: 900;');
-  console.log('%cReady to build your digital presence.', 'color: #06b6d4; font-size: 12px;');
+  console.log('%cRomeDigital 🚀', 'color: #facc15; font-size: 18px; font-weight: 900;');
+  console.log('%cReady to build your digital presence.', 'color: #ffffff; font-size: 12px;');
 });
